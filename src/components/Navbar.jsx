@@ -15,7 +15,25 @@ const Navbar = () => {
     >
       <div className='w-full flex justify=between items-center max-w-7x1 mx-auto'>
         <Link to='/' className='flex items-center gap-2' onClick={() => { setActive(""); window.scrollTo(0, 0)}}>
+          <img src={logo} alt="logo" className='w=9 h-9 object-contain'></img>
+          <p className='text-white text-[18px] font-bold cursor-pointer'>Santiago <span className='sm:block hidden'>| Alaniz</span></p>
         </Link>
+        <ul className='list-none hidden sm:flex flex-row gap-10'>
+          {navLinks.map((link) => (
+            <li 
+            key={link.id} 
+            className={`${
+              active === link.title
+               ? "text-white" 
+               : "text-secondary"
+              } hover:text-white text-[18px] 
+              font-medium cursor-pointer`}
+              onClick={}
+              >
+              <a href={`#${link.id}`}>{link.title}</a>
+            </li>
+          ))}
+        </ul>
       </div>
     </nav>
   )
